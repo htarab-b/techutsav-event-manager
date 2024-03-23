@@ -21,8 +21,8 @@ class Participant(models.Model):
     Teammate9 = models.CharField(max_length=55, null=True, blank=True)
     Teammate10 = models.CharField(max_length=55, null=True, blank=True)
     College = models.CharField(max_length=155)
-    Degree = models.CharField(max_length=25)
-    Year = models.CharField(max_length=10)
+    Degree = models.CharField(max_length=55)
+    Year = models.CharField(max_length=25)
     Registered = models.CharField(max_length=3, choices=Yes_No_Choices, default="NO")
     def __str__(self):
         return self.Teammate1 + " - " + self.Event + " (" + self.Phone + ")"

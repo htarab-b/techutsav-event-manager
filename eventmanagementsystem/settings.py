@@ -74,6 +74,8 @@ WSGI_APPLICATION = 'eventmanagementsystem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -81,6 +83,7 @@ DATABASES = {
     }
 }
 
+DATABASES["default"] = dj_database_url.parse("postgres://tumanager_user:3pvnbivnlrxVhvyY7B2lmTsA7q0UvJMq@dpg-cnvh8med3nmc73f4knj0-a.singapore-postgres.render.com/tumanager")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
