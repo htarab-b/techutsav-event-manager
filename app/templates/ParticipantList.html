@@ -1,0 +1,260 @@
+<!doctype html>
+
+<html lang="en"> 
+
+ <head> 
+
+  <meta charset="UTF-8"> 
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Federo&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    *
+    {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Quicksand', sans-serif;
+    }
+    body 
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #000;
+    }
+    section 
+    {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2px;
+        flex-wrap: wrap;
+        overflow: hidden;
+    }
+    section::before 
+    {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#000,#5627CE,#000);
+        animation: animate 5s linear infinite;
+    }
+    @keyframes animate 
+    {
+        0%
+        {
+            transform: translateY(-100%);
+        }
+        100%
+        {
+            transform: translateY(100%);
+        }
+    }
+    section span 
+    {
+        position: relative;
+        display: block;
+        width: calc(6.25vw - 2px);
+        height: calc(6.25vw - 2px);
+        background: #181818;
+        z-index: 2;
+        transition: 1.5s;
+    }
+    section span:hover 
+    {
+        background: #5627CE;
+        transition: 0s;
+    }
+
+    section .signin
+    {
+        position: absolute;
+        width: 95%;
+        height: 90%;
+        background: #222;  
+        z-index: 1000;
+        display: flex;
+        padding: 40px;
+        border-radius: 4px;
+        box-shadow: 0 15px 35px rgba(0,0,0,9);
+        opacity: 90%;
+    }
+    section .signin .content 
+    {
+        position: relative;
+        width: 100%;
+        gap: 40px;
+        overflow-y: scroll;
+    }
+    section .signin .content h2 
+    {
+        font-size: 3em;
+        color: #5627CE;
+        text-transform: uppercase;
+    }
+    section .signin .content h4
+    {
+        font-family: "PT Sans", sans-serif;
+        font-weight: 400;
+        font-size: 2em;
+        color: #fff;
+    }
+    section .signin .content h4 .highlight
+    {
+        font-size: 1.2em;
+        color: #5627CE;
+        text-transform: uppercase;
+    }
+    
+    @media (max-width: 900px)
+    {
+        section span 
+        {
+            width: calc(10vw - 2px);
+            height: calc(10vw - 2px);
+        }
+    }
+    @media (max-width: 600px)
+    {
+        section span 
+        {
+            width: calc(20vw - 2px);
+            height: calc(20vw - 2px);
+        }
+    }
+
+    /* Form */
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        padding-left: 5px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    form input, form select {
+        font-size: 1em;
+        margin-left: 5px;
+        margin-right: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    input[type="submit"], form input[type="button"] {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #fff;
+        border: 0px;
+    }
+    input[type="submit"]:hover, form input[type="button"]:hover {
+        background-color: #5627CE;
+        color: #fff;
+        transform: scale(1.2);
+        transition: ease-out 0.5s;
+    }
+
+    .fixed-button {
+        position: fixed;
+        top: 5%; /* Adjust as needed */
+        left: 5%; /* Adjust as needed */
+        background-color: #5627CE;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000; /* Ensure it's above other content */
+        text-decoration: none;
+    }
+
+  </style>
+
+ </head> 
+
+ <body> <!-- partial:index.partial.html --> 
+
+  <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> 
+
+   <div class="signin"> 
+
+   <a href="{% url 'registration' %}" class="fixed-button">Back</a>
+
+    <div class="content"> 
+
+     <center><h2>Participants List (Total : {{ count }})</h2> <br> </center>
+
+     <form action="" method="get">
+        <input type="text" name="name" placeholder="Participant Name" value="{{ name }}">
+        <input type="text" name="phone" placeholder="Phone Number" value="{{ phone }}">
+        <select name="event">
+            <option value="" selected>All Events</option>
+            <option value="byte battle - Free Fire" {% if event == "byte battle - Free Fire" %}selected{% endif %}>byte battle - free fire</option>
+            <option value="byte battle - BGMI" {% if event == "byte battle - BGMI" %}selected{% endif %}>byte battle - bgmi</option>
+            <option value="byte battle - Chess" {% if event == "byte battle - Chess" %}selected{% endif %}>byte battle - chess</option>
+            <option value="data dynamo" {% if event == "data dynamo" %}selected{% endif %}>data dynamo</option>
+            <option value="pixellno" {% if event == "pixellno" %}selected{% endif %}>pixellno</option>
+            <option value="info graphics" {% if event == "info graphics" %}selected{% endif %}>info graphics</option>
+            <option value="techno strom" {% if event == "techno strom" %}selected{% endif %}>techno strom</option>
+            <option value="bug busters" {% if event == "bug busters" %}selected{% endif %}>bug busters</option>
+            <option value="cyber giggles" {% if event == "cyber giggles" %}selected{% endif %}>cyber giggles</option>
+            <option value="creative clash" {% if event == "creative clash" %}selected{% endif %}>creative clash</option>
+            <option value="idea smiths" {% if event == "idea smiths" %}selected{% endif %}>idea smiths</option>
+        </select>
+        <select name="registered">
+            <option value="" selected>All Registrations</option>
+            <option value="NO" {% if registered == "NO" %}selected{% endif %}>Not Registered</option>
+            <option value="YES" {% if registered == "YES" %}selected{% endif %}>Registered</option>
+        </select>
+        <input type="submit" value="Filter">
+        <br>
+        <a href="{% url 'downloadcsv' %}?phone={{ phone }}&event={{ event }}&name={{ name }}&registered={{ registered }}"><input type="button" value="Download CSV"></a>
+     </form>
+     <br>
+
+     <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr style="background-color: #5627CE; color: white;">
+                <th style="border: 1px solid black; padding: 8px;">Event</th>
+                <th style="border: 1px solid black; padding: 8px;">Participant 1</th>
+                <th style="border: 1px solid black; padding: 8px;">Phone</th>
+                <th style="border: 1px solid black; padding: 8px;">College</th>
+                <th style="border: 1px solid black; padding: 8px;">Degree</th>
+                <th style="border: 1px solid black; padding: 8px;">Year</th>
+                <th style="border: 1px solid black; padding: 8px;">Registered</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for participant in participant_list %}
+                <tr style="background-color: white; color: black;">
+                    <td style="border: 1px solid black; padding: 8px; text-transform: uppercase;">{{ participant.Event }}</td>
+                    <td style="border: 1px solid black; padding: 8px;"><a href="{% url 'registration' %}?phone={{ participant.Phone }}">{{ participant.Teammate1 }}</a></td>
+                    <td style="border: 1px solid black; padding: 8px;">{{ participant.Phone }}</td>
+                    <td style="border: 1px solid black; padding: 8px;">{{ participant.College }}</td>
+                    <td style="border: 1px solid black; padding: 8px;">{{ participant.Degree }}</td>
+                    <td style="border: 1px solid black; padding: 8px;">{{ participant.Year }}</td>
+                    <td style="border: 1px solid black; padding: 8px;">{{ participant.Registered }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+     
+    </div> 
+
+   </div> 
+
+  </section> <!-- partial --> 
+
+ </body>
+
+</html>
