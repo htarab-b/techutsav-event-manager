@@ -42,6 +42,62 @@ class ParticipantList_View(generic.FormView):
         
         return render(request, self.template_name, {"participant_list": participant_list, "count": len(participant_list), "phone": phone, "event": event, "name": name, "registered": registered})
         
+class SpotRegistration_View(generic.FormView):
+    template_name = 'SpotRegistration.html'
+    def get(self, request):
+        print (request.GET.get('event'))
+        if request.GET.get('event'):
+            return render(request, self.template_name, {"event": request.GET.get('event')})
+        else:
+            return render(request, self.template_name)
+    def post(self, request):
+        Phone = request.POST.get('phone')
+        Event = request.GET.get('event')
+        Teammate1 = request.POST.get('participant1')
+        if (request.POST.get('participant2')): Teammate2 = request.POST.get('participant2')
+        else: Teammate2 = "nan - nan"
+        if (request.POST.get('participant3')): Teammate3 = request.POST.get('participant3')
+        else: Teammate3 = "nan - nan"
+        if (request.POST.get('participant4')): Teammate4 = request.POST.get('participant4')
+        else: Teammate4 = "nan - nan"
+        if (request.POST.get('participant5')): Teammate5 = request.POST.get('participant5')
+        else: Teammate5 = "nan - nan"
+        if (request.POST.get('participant6')): Teammate6 = request.POST.get('participant6')
+        else: Teammate6 = "nan - nan"
+        if (request.POST.get('participant7')): Teammate7 = request.POST.get('participant7')
+        else: Teammate7 = "nan - nan"
+        if (request.POST.get('participant8')): Teammate8 = request.POST.get('participant8')
+        else: Teammate8 = "nan - nan"
+        if (request.POST.get('participant9')): Teammate9 = request.POST.get('participant9')
+        else: Teammate9 = "nan - nan"
+        if (request.POST.get('participant10')): Teammate10 = request.POST.get('participant10')
+        else: Teammate10 = "nan - nan"
+        College = request.POST.get('college')
+        Degree = request.POST.get('degree')
+        Year = request.POST.get('year')
+        Registered = "SPOT"
+
+        Participant.objects.create(
+            Phone = Phone,
+            Event = Event,
+            Teammate1 = Teammate1,
+            Teammate2 = Teammate2,
+            Teammate3 = Teammate3,
+            Teammate4 = Teammate4,
+            Teammate5 = Teammate5,
+            Teammate6 = Teammate6,
+            Teammate7 = Teammate7,
+            Teammate8 = Teammate8,
+            Teammate9 = Teammate9,
+            Teammate10 = Teammate10,
+            College = College,
+            Degree = Degree,
+            Year = Year,
+            Registered = Registered,
+        )
+        return redirect('registration')
+
+
 class RegisterParticipant(generic.RedirectView):
     def get(self, request):
         phone = request.GET.get('phone')
