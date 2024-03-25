@@ -74,11 +74,12 @@
     section .signin
     {
         position: absolute;
-        width: 90%;
-        height: 80%;
+        width: 400px;
         background: #222;  
         z-index: 1000;
         display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 40px;
         border-radius: 4px;
         box-shadow: 0 15px 35px rgba(0,0,0,9);
@@ -89,10 +90,10 @@
         position: relative;
         width: 100%;
         display: flex;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: 40px;
-        overflow-y: scroll;
     }
     section .signin .content h2 
     {
@@ -108,27 +109,10 @@
     }
     section .signin .content .form 
     {
-        width: 100%;
+        width: 300px;
         display: flex;
         flex-direction: column;
         gap: 25px;
-    }
-
-    section .signin .content .form select
-    {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 25px;
-        font-size: 2em;
-        text-align: center;
-    }
-
-    section .signin .content form
-    {
-        width: 100%;
     }
     section .signin .content .form .inputBox
     {
@@ -222,122 +206,28 @@
 
     <div class="content"> 
 
-     <h2>{{ event }} Spot Registration</h2> 
-
      {% if message %}<h5>{{ message }}</h5>{% endif %}
 
-     {% if event %}
-        <form action="" method="post">
-            {% csrf_token %}
+     <form action="" method="post">
+     {% csrf_token %}
 
-            <div class="form"> 
+     <div class="form"> 
 
-            <div class="inputBox"> 
-            <input type="text" name="phone" required> <i>Phone Number</i> 
-            </div> 
+      <div class="inputBox"> 
 
-            <div class="inputBox"> 
-            <input type="text" name="participant1" required> <i>Participant 1</i> 
-            </div> 
+       <input type="text" name="transaction_id" required> <i>Transaction ID</i> 
 
-            <div class="inputBox"> 
-            <input type="text" name="participant2"> <i>Participant 2</i> 
-            </div> 
+      </div> 
 
-            <div class="inputBox"> 
-            <input type="text" name="participant3"> <i>Participant 3</i> 
-            </div> 
+      <div class="inputBox"> 
 
-            <div class="inputBox"> 
-            <input type="text" name="participant4"> <i>Participant 4</i> 
-            </div> 
+       <input type="submit" value="Submit">
 
-            <div class="inputBox"> 
-            <input type="text" name="participant5"> <i>Participant 5</i> 
-            </div> 
+      </div> 
 
-            <div class="inputBox"> 
-            <input type="text" name="participant6"> <i>Participant 6</i> 
-            </div> 
+     </div> 
 
-            <div class="inputBox"> 
-            <input type="text" name="participant7"> <i>Participant 7</i> 
-            </div> 
-
-            <div class="inputBox"> 
-            <input type="text" name="participant8"> <i>Participant 8</i> 
-            </div> 
-
-            <div class="inputBox"> 
-            <input type="text" name="participant9"> <i>Participant 9</i> 
-            </div> 
-
-            <div class="inputBox"> 
-            <input type="text" name="participant10"> <i>Participant 10</i> 
-            </div> 
-
-            <div class="inputBox"> 
-            <input type="text" name="college" required> <i>College</i> 
-            </div> 
-
-            <div class="inputBox"> 
-            <input type="text" name="degree" required> <i>Degree</i> 
-            </div> 
-
-            <div class="inputBox"> 
-            <input type="text" name="year" required> <i>Year</i> 
-            </div> 
-
-            {% if event == 'byte battle - BGMI' %}
-                <div class="inputBox"> 
-                 <input type="text" name="transaction_id" required> <i>Transaction ID</i> 
-                </div> 
-            {% endif %}
-            {% if event == 'byte battle - Free Fire' %}
-                <div class="inputBox"> 
-                 <input type="text" name="transaction_id" required> <i>Transaction ID</i> 
-                </div> 
-            {% endif %}
-            {% if event == 'byte battle - Chess' %}
-                <div class="inputBox"> 
-                 <input type="text" name="transaction_id" required> <i>Transaction ID</i> 
-                </div> 
-            {% endif %}
-
-            <div class="inputBox"> 
-
-            <input type="submit" value="Register">
-            
-            </div> 
-
-            </div> 
-
-        </form>
-
-     {% else %}
-        <div class="form">
-            <form action="" method="get">
-                <select name="event" id="">
-                    <option value="" selected disabled>Choose Event</option>
-                    <option value="byte battle - Chess">byte battle chess</option>
-                    <option value="byte battle - BGMI">byte battle bgmi</option>
-                    <option value="byte battle - Free Fire">byte battle freefire</option>
-                    <option value="data dynamo">data dynamo</option>
-                    <option value="pixellno">pixellno</option>
-                    <option value="info graphics">info graphics</option>
-                    <option value="techno strom">techno strom</option>
-                    <option value="bug busters">bug busters</option>
-                    <option value="cyber giggles">cyber giggles</option>
-                    <option value="creative clash">creative clash</option>
-                    <option value="idea smiths">idea smiths</option>
-                </select>
-                <br>
-                <div class="inputBox"> 
-                    <input type="submit" value="Continue">
-                </div> 
-            </form>
-        </div>
-     {% endif %}
+     </form>
 
     </div> 
 

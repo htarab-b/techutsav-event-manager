@@ -25,5 +25,6 @@ class Participant(models.Model):
     Degree = models.CharField(max_length=55)
     Year = models.CharField(max_length=25)
     Registered = models.CharField(max_length=5, choices=Yes_No_Choices, default="NO")
+    Transaction_ID = models.CharField(max_length=35, null=True, blank=True)
     def __str__(self):
         return self.Teammate1 + " - " + self.Event + " (" + self.Phone + ")"

@@ -1,4 +1,5 @@
 from typing import Any
+from django import http
 import pandas as pd
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
@@ -76,6 +77,8 @@ class SpotRegistration_View(generic.FormView):
         Degree = request.POST.get('degree')
         Year = request.POST.get('year')
         Registered = "SPOT"
+        if (request.POST.get('transaction_id')): Transaction_ID = request.POST.get('transaction_id')
+        else: Transaction_ID = "N/A"
 
         Participant.objects.create(
             Phone = Phone,
@@ -94,6 +97,7 @@ class SpotRegistration_View(generic.FormView):
             Degree = Degree,
             Year = Year,
             Registered = Registered,
+            Transaction_ID = Transaction_ID,
         )
         return redirect('registration')
 
@@ -102,8 +106,13 @@ class RegisterParticipant(generic.RedirectView):
     def get(self, request):
         phone = request.GET.get('phone')
         participant_object = Participant.objects.filter(Phone=phone)
-        print (participant_object)
+        if participant_object.filter(Event__istartswith="byte battle").exists():
+            return render(request, "Transaction.html")
         participant_object.update(Registered="YES")
+        return redirect('registration')
+    def post(self, request):
+        participant_object = Participant.objects.filter(Phone=request.GET.get('phone'))
+        participant_object.update(Registered="YES", Transaction_ID=request.POST.get('transaction_id'))
         return redirect('registration')
     
 def import_csv_view(request):

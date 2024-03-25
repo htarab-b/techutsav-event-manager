@@ -239,7 +239,7 @@
             {% for participant in participant_list %}
                 <tr style="background-color: white; color: black;">
                     <td style="border: 1px solid black; padding: 8px; text-transform: uppercase;">{{ participant.Event }}</td>
-                    <td style="border: 1px solid black; padding: 8px;"><a href="{% url 'registration' %}?phone={{ participant.Phone }}">{{ participant.Teammate1 }}</a></td>
+                    <td style="border: 1px solid black; padding: 8px;"><a href="{% url 'registration' %}?phone={{ participant.Phone }}" target="_blank">{{ participant.Teammate1 }}</a></td>
                     <td style="border: 1px solid black; padding: 8px;">{{ participant.Phone }}</td>
                     <td style="border: 1px solid black; padding: 8px;">{{ participant.College }}</td>
                     <td style="border: 1px solid black; padding: 8px;">{{ participant.Degree }}</td>

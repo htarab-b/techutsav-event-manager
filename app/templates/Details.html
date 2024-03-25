@@ -199,7 +199,11 @@
             College : {{ participant.College }} <br>
             Degree : {{ participant.Degree }} <br>
             Year : {{ participant.Year }} <br>
-            Registered : <strong class="highlight">{{ participant.Registered }}</strong> <br><br>
+            Registered : <strong class="highlight">{{ participant.Registered }}</strong> <br>
+            {% if participant.Event == 'byte battle - BGMI' %}Transaction ID : {{ participant.Transaction_ID }}{% endif %}
+            {% if participant.Event == 'byte battle - Free Fire' %}Transaction ID : {{ participant.Transaction_ID }}{% endif %}
+            {% if participant.Event == 'byte battle - Chess' %}Transaction ID : {{ participant.Transaction_ID }}{% endif %}
+            <br><br>
         {% endfor %}
      </h4>
      <center><div class="button"> {% if participants.0.Registered == "NO" %}<a href="{% url 'registerparticipant' %}?phone={{ participants.0.Phone }}"><button class="bn632-hover bn26">Register</button></a>{% endif %}</div></center>
