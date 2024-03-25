@@ -103,7 +103,7 @@
     }
     section .signin .content h5
     {
-        font-size: 1em;
+        font-size: 1.2em;
         color: #5627CE;
         text-transform: uppercase;
     }
@@ -206,7 +206,7 @@
 
     <div class="content"> 
 
-     {% if message %}<h5>{{ message }}</h5>{% endif %}
+     <h5>Byte Battle Registration is detected. If participants have to participate in any other event, they can unregister from Byte Battle or unregister from All other events</h5>
 
      <form action="" method="post">
      {% csrf_token %}
@@ -224,6 +224,8 @@
        <input type="submit" value="Submit">
 
       </div> 
+
+      <div class="links"><a href="{% url 'bytebattleunregister' %}?phone={{ phone }}">Unregister from Byte Battle</a></div>
 
      </div> 
 

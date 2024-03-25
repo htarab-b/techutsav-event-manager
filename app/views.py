@@ -107,12 +107,13 @@ class RegisterParticipant(generic.RedirectView):
         phone = request.GET.get('phone')
         participant_object = Participant.objects.filter(Phone=phone)
         if participant_object.filter(Event__istartswith="byte battle").exists():
-            return render(request, "Transaction.html")
+            return render(request, "Transaction.html", {"phone": phone})
         participant_object.update(Registered="YES")
         return redirect('registration')
     def post(self, request):
-        participant_object = Participant.objects.filter(Phone=request.GET.get('phone'))
-        participant_object.update(Registered="YES", Transaction_ID=request.POST.get('transaction_id'))
+        participant_objects_to_delete = Participant.objects.filter(Phone=request.GET.get('phone')).exclude(Event__istartswith="byte battle")
+        participant_objects_to_delete.delete()
+        Participant.objects.filter(Phone=request.GET.get('phone')).update(Registered="YES", Transaction_ID=request.POST.get('transaction_id'))
         return redirect('registration')
     
 def import_csv_view(request):
@@ -217,3 +218,8 @@ def download_csv(request):
             participant.Registered,
         ])
     return response
+
+def BB_Unregister(request):
+    Participant.objects.filter(Phone=request.GET.get('phone'), Event__startswith = "byte battle").delete()
+    Participant.objects.filter(Phone=request.GET.get('phone')).update(Registered="YES")
+    return redirect('registration')

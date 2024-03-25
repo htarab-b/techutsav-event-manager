@@ -8,4 +8,5 @@ urlpatterns = [
     path('import', import_csv_view, name="import"),
     path('registerparticipant', RegisterParticipant.as_view(), name="registerparticipant"),
     path('downloadcsv', download_csv, name="downloadcsv"),
+    path('bytebattleunregister', BB_Unregister, name="bytebattleunregister"),
 ]
