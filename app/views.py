@@ -39,7 +39,10 @@ class ParticipantList_View(generic.FormView):
         if name != '':
             participant_list = participant_list.filter(Teammate1__icontains=name)
         if registered != '':
-            participant_list = participant_list.filter(Registered=registered)
+            if registered == "YES":
+                participant_list = participant_list.exclude(Registered="NO")
+            else:
+                participant_list = participant_list.filter(Registered=registered)
         
         return render(request, self.template_name, {"participant_list": participant_list, "count": len(participant_list), "phone": phone, "event": event, "name": name, "registered": registered})
         
